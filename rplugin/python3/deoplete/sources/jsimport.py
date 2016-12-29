@@ -53,9 +53,9 @@ class Source(Base):
         return m.start() if m else -1
 
     def gather_candidates(self, context):
-        if os.path.isfile(os.path.join(os.getcwd(), '.jsimport.json')):
+        if os.path.isfile(os.path.join(os.getcwd(), '.jsimport')):
 
-            with open('.jsimport.json') as json_file:
+            with open('.jsimport') as json_file:
                 data = json.load(json_file)
                 return [self._convert_completion_data(e, data[e]) for e in data]
 
