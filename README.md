@@ -5,7 +5,20 @@ Autocompletion requires [deoplete][1].
 
 ## Features
 
-## Prerequisites
+## Installation
+Use a plugin manager (vim-plug, Neobundle, dein, etc). `neovim/node-host` requires running `npm install`.
+Or manually check out the repo and put the directory to your vim runtime path.
+
+#### vim-plug
+```vim
+Plug 'billyvg/node-host', { 'do': 'npm install' }
+Plug 'billyvg/jsimport.nvim'
+```
+
+#### Updating
+Update plugins via git or plugin manager (i.e. with `vim-plug`: `:PlugUpdate`). Then `:UpdateRemotePlugins` and finally restart Neovim.
+
+### Prerequisites
 
   * [Neovim][2]
   * [Node.js][3], [Neovim Node.js host][4]
@@ -15,37 +28,27 @@ Tested on:
 
   * macOS 10.11.6, Neovim 0.1.7, Node.js 6.9.x
 
-## Installation
-
-### Install Vim Plugins
-
-Use a plugin manager (vim-plug, Neobundle, dein, etc). `neovim/node-host` requires running `npm install`.
-
-#### vim-plug
-```vim
-Plug 'billyvg/node-host', { 'do': 'npm install' }
-Plug 'billyvg/jsimport.nvim'
-```
-
-#### dein
-```vim
-call dein#add('billyvg/node-host', { 'build': 'npm install' })
-call dein#add('billyvg/jsimport.nvim')
-```
-
-Or manually check out the repo and put the directory to your vim runtime path.
-
-## Updating
-Update plugins via git or plugin manager (i.e. with `vim-plug`: `:PlugUpdate`). Then `:UpdateRemotePlugins` and finally restart Neovim.
-
 ## How to use
-WIP
+This is in a very early state, so you'll have to manually run this vim command first
+in order to generate the source file for deoplete (as well as some context information when finishing an autocomplete)
 
-### Debugging
+`:JsImportCache`
+
+After the file is generated, you will be able to autocomplete keywords in `js` and `jsx` files. After the autocomplete finishes
+it will also insert an ES6 import at the top of the file. Customization is currently limited.
+
+## Variables
+```viml
+let g:jsimport#reporting = 1
+```
+Turns error reporting to [sentry](https://sentry.io) on. Please view source, we try to not collect user information.
+This is *opt-in* so if you want to help improve this, please turn it on!
+
+## Debugging
 WIP
 
 ## Known Issues
-WIP
+[Issues](https://github.com/billyvg/jsimport.nvim/issues)
 
 [1]: https://github.com/Shougo/deoplete.nvim
 [2]: https://neovim.io
