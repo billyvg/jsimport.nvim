@@ -1,0 +1,7 @@
+{
+  "presets": ["latest"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-rest-spread"
+  ]
+}

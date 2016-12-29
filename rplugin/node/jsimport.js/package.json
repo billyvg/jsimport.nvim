@@ -1,0 +1,40 @@
+{
+  "name": "jsimport-rplugin.nvim",
+  "version": "0.0.1",
+  "description": "Magical autocompletion for es6 imports in neovim",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "babel src --out-dir lib --watch --source-maps",
+    "build": "babel src --out-dir lib --source-maps",
+    "test": "jest"
+  },
+  "keywords": [
+    "es6",
+    "neovim",
+    "vim",
+    "autocomplete"
+  ],
+  "author": "Billy Vong <billy at mmo.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-latest": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-import": "^2.2.0",
+    "jest": "^18.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-traverse": "^6.21.0",
+    "babylon": "^6.14.1",
+    "lodash": "^4.17.2",
+    "mz": "^2.6.0",
+    "raven": "^1.1.1",
+    "regenerator-runtime": "^0.10.1",
+    "update-notifier": "^1.0.3"
+  }
+}

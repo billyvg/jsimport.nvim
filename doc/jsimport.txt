@@ -1,0 +1,87 @@
+*jsimport.nvim*	    NodeJS remote plugin for Neovim that provides autocompletion for javascript imports.
+
+==============================================================================
+CONTENTS				*jsimport-contents*
+1. Intro			|jsimport-intro|
+2. Requirements			|jsimport-requirements|
+3. Installation			|jsimport-installation|
+4. Options			|jsimport-options|
+5. Commands			|jsimport-commands|
+6. FAQ				|jsimport-faq|
+7. LICENSE			|jsimport-license|
+
+==============================================================================
+					*jsimport-intro*
+1. Intro~
+
+jsimport is a NodeJS remote plugin for Neovim that provides autocompletion for javascript imports.
+Autocompletion requires [deoplete][1].
+
+Github~
+
+https://github.com/billyvg/jsimport.nvim
+
+==============================================================================
+					*jsimport-requirements*
+2. Requirements~
+
+jsimport requires the following:
+
+* Neovim 0.1.5
+* Node.js (tested with 5.12.0 and 6.3.0)
+
+==============================================================================
+					*jsimport-installation*
+3. Installation~
+
+~vim-plug Install~
+>
+	Plug 'billyvg/node-host'
+	Plug 'billyvg/jsimport.nvim'
+<
+==============================================================================
+					*jsimport-options*
+4. Options ~
+
+|g:jsimport#reporting|
+
+------------------------------------------------------------------------------
+					*g:jsimport#reporting*
+g:jsimport#reporting~
+
+Provides exception tracking to a remote service, no fingerprinting of user is
+attempted.
+
+Default: `0`
+>
+	let g:jsimport#reporting = 1
+==============================================================================
+					*jsimport-commands*
+5. Commands ~
+
+Available commands
+
+|JsImportCache|
+
+------------------------------------------------------------------------------
+					*JsImportCache*
+JsImportCache~
+
+Searches for "exports" in js files and saves it to a local file
+
+==============================================================================
+					*jsimport-faq*
+6. FAQ~
+
+Nothing for now.
+
+==============================================================================
+                                        *jsimport-license*
+7. License ~
+
+This software is licensed under the MIT license.
+
+Note: This license does not cover the files that come from the LLVM project.
+
+==============================================================================
+
