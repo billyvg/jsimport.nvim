@@ -35,7 +35,7 @@ endfunction
 
 function! jsimport#init#_channel() abort
   if !has('nvim') || !has('python3')
-    call deoplete#util#print_error(
+    call jsimport#util#print_error(
           \ 'jsimport.nvim requires neovim with python3 support')
     return 1
   endif
@@ -46,7 +46,7 @@ function! jsimport#init#_channel() abort
     endif
     call _jsimport_load()
   catch
-    call deoplete#util#print_error(printf(
+    call jsimport#util#print_error(printf(
           \ 'jsimport failed to load: %s. '
           \ .'Try the :UpdateRemotePlugins command and restart Neovim. '
           \ .'See also :CheckHealth.',
