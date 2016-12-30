@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/billyvg/jsimport.nvim.svg?branch=master)](https://travis-ci.org/billyvg/jsimport.nvim)
+
 # jsimport.nvim (alpha)
 
 jsimport is a NodeJS remote plugin for Neovim that provides autocompletion for javascript imports.
