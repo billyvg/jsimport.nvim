@@ -1,4 +1,4 @@
-import getImportPath from '../src/getImportPath';
+import getImportPath from '../getImportPath';
 
 describe('getImportPath', function() {
   it('two files in the same directory', function() {

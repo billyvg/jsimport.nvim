@@ -25,12 +25,17 @@
   },
   "jest": {
     "rootDir": "rplugin/node/jsimport.js/src",
-    "coverageDirectory": "./coverage/",
+    "coverageDirectory": "../../../../coverage/",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "rplugin/node/jsimport.js/src/**/*.{js,jsx}",
+      "**/*.{js,jsx}",
       "!**/node_modules/**",
       "!**/vendor/**"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "lib",
+      "eslintrc"
     ]
   }
 }

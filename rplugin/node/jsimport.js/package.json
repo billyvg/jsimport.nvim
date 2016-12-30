@@ -34,5 +34,11 @@
     "raven": "^1.1.1",
     "regenerator-runtime": "^0.10.1",
     "update-notifier": "^1.0.3"
+  },
+  "jest": {
+    "rootDir": "src",
+    "testPathIgnorePatterns": [
+      "eslintrc"
+    ]
   }
 }
