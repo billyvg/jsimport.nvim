@@ -24,7 +24,13 @@
     "jest": "^18.0.0"
   },
   "jest": {
+    "rootDir": "rplugin/node/jsimport.js/src",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "rplugin/node/jsimport.js/src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ]
   }
 }
