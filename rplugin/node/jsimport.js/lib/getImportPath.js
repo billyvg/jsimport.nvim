@@ -22,7 +22,12 @@ function getImportPath(from, to) {
       name = _path$parse2.name;
 
   var relativePath = _path2.default.relative(fromDir, toDir);
+  var isParentDir = relativePath && relativePath[0] === '.';
+  var sep = _path2.default.sep;
+  var relativeToCurrentDirString = !isParentDir ? '.' + sep : '';
 
-  return (relativePath ? relativePath : './') + '/' + name;
+  // if string does not begin with a "." then it is in the current directory
+  // append './'
+  return '' + relativeToCurrentDirString + (relativePath ? '' + relativePath + _path2.default.sep : '') + name;
 }
 //# sourceMappingURL=getImportPath.js.map

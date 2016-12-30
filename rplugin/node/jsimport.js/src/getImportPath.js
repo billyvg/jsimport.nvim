@@ -14,7 +14,12 @@ export default function getImportPath(from: string, to: string): string {
   } = path.parse(to);
 
   const relativePath = path.relative(fromDir, toDir);
+  const isParentDir = relativePath && relativePath[0] === '.';
+  const sep = path.sep;
+  const relativeToCurrentDirString = !isParentDir ? `.${sep}` : '';
 
-  return `${relativePath ? relativePath : './'}/${name}`;
+  // if string does not begin with a "." then it is in the current directory
+  // append './'
+  return `${relativeToCurrentDirString}${relativePath ? `${relativePath}${path.sep}` : ''}${name}`;
 }
 
