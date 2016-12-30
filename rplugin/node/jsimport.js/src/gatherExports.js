@@ -43,10 +43,10 @@ export const getFiles = async (directory, pattern, options = {}) => {
 
 };
 
-const gatherExports = async (directory, pattern, options = {}) => {
+const gatherExports = async (directory, pattern = '\.js(x|)$', options = {}) => {
   const ignoreDirs = DEFAULT_IGNORE || options.ignoreDirs;
 
-  return getFiles(directory, /\.js(x|)$/, { ignoreDirs });
+  return getFiles(directory, pattern, { ignoreDirs });
 };
 
 export default gatherExports;
