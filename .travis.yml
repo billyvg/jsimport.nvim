@@ -6,5 +6,10 @@ cache:
   yarn: true
 install:
   - cd rplugin/node/jsimport.js && npm install
+  - npm install -g codecov
   - npm install
-
+script:
+  - npm test
+  - codecov
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
