@@ -5,9 +5,9 @@ node_js:
 cache:
   yarn: true
 install:
-  - (cd rplugin/node/jsimport.js && npm install)
+  - (cd rplugin/node/jsimport.js && yarn)
   - npm install -g codecov
-  - npm install
+  - yarn
 script:
   - npm test
   - codecov
