@@ -4,8 +4,8 @@
   "description": "Magical autocompletion for es6 imports in neovim",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "babel src --out-dir lib --watch --source-maps inline",
-    "build": "babel src --out-dir lib --source-maps inline",
+    "dev": "babel src --out-dir lib --ignore '__tests__' --watch --source-maps inline",
+    "build": "babel src --out-dir lib --ignore '__tests__' --source-maps inline",
     "test": "jest"
   },
   "keywords": [
