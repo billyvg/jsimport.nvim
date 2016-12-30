@@ -37,8 +37,8 @@
     "update-notifier": "^1.0.3"
   },
   "jest": {
-    "rootDir": "src",
     "testPathIgnorePatterns": [
+      "lib",
       "eslintrc"
     ]
   }
