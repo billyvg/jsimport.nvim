@@ -29,6 +29,7 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/{index,constants}.js",
       "!**/node_modules/**",
       "!**/vendor/**"
     ],
