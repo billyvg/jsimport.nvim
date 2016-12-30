@@ -1,0 +1,5 @@
+exports[`gatherExports can gather exports with default settings 1`] = `
+Array [
+  "/Users/billy/Development/js-magic-import.nvim/rplugin/node/jsimport.js/test_resources/gather_test/defaultExport.js",
+]
+`;
