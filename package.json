@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "babel rplugin/node/jsimport.js/src --out-dir rplugin/node/jsimport.js/lib --watch --source-maps inline",
     "build": "babel rplugin/node/jsimport.js/src --out-dir rplugin/node/jsimport.js/lib --source-maps inline",
-    "lint": "cd rplugin/node/jsimport.js && eslint src",
+    "lint": "eslint rplugin/node/jsimport.js/src",
     "test": "npm run lint && jest"
   },
   "keywords": [
