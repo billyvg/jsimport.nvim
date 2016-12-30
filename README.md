@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/billyvg/jsimport.nvim.svg?branch=master)](https://travis-ci.org/billyvg/jsimport.nvim) [![codecov](https://codecov.io/gh/billyvg/jsimport.nvim/branch/master/graph/badge.svg)](https://codecov.io/gh/billyvg/jsimport.nvim)
-
-
-# jsimport.nvim (alpha)
+# jsimport.nvim (alpha) [![Build Status](https://travis-ci.org/billyvg/jsimport.nvim.svg?branch=master)](https://travis-ci.org/billyvg/jsimport.nvim) [![codecov](https://codecov.io/gh/billyvg/jsimport.nvim/branch/master/graph/badge.svg)](https://codecov.io/gh/billyvg/jsimport.nvim)
 
 jsimport is a NodeJS remote plugin for Neovim that provides autocompletion for javascript imports.
 Autocompletion requires [deoplete][1].
@@ -45,14 +42,10 @@ it will also insert an ES6 import at the top of the file. Customization is curre
 ```viml
 let g:jsimport#reporting = 1
 ```
-Turns error reporting to [sentry](https://sentry.io) on. Please view source, we try to not collect user information.
+Turns error reporting to [Sentry](https://sentry.io) on. Please view source, we try not to collect any user information.
 This is *opt-in* so if you want to help improve this, please turn it on!
 
-## Debugging
-WIP
-
-## Known Issues
-[Issues](https://github.com/billyvg/jsimport.nvim/issues)
+## [Issues](https://github.com/billyvg/jsimport.nvim/issues)
 
 [1]: https://github.com/Shougo/deoplete.nvim
 [2]: https://neovim.io
