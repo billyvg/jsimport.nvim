@@ -4,6 +4,7 @@ jsimport is a NodeJS remote plugin for Neovim that provides autocompletion for j
 Autocompletion requires [deoplete][1].
 
 ## Features
+![features](https://raw.githubusercontent.com/billyvg/jsimport.nvim/master/example.gif)
 
 ## Installation
 Use a plugin manager (vim-plug, Neobundle, dein, etc). `neovim/node-host` requires running `npm install`.
