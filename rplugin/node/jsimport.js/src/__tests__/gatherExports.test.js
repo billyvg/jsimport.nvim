@@ -8,7 +8,7 @@ describe('gatherExports', function() {
 
     // We can't save the entire file path because snapshots will fail in other envs
     expect(
-      files.map((file) => file.replace(path.resolve(__dirname, '../../../../../../'), ''))
+      files.map((file) => file.replace(path.resolve(__dirname, '../../../../..'), ''))
     ).toMatchSnapshot();
   });
 });
