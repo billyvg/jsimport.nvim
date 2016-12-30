@@ -25,7 +25,7 @@ export function getImportPath(from, to) {
 
   const relativePath = path.relative(fromDir, toDir);
 
-  return `${relativePath ? relativePath : './'}${name}`;
+  return `${relativePath ? relativePath : './'}/${name}`;
 }
 
 export function getTemplate(nvim, { /*buffer, */word, importPath, context }) {

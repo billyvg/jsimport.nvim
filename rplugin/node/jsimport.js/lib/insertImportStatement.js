@@ -46,7 +46,7 @@ function getImportPath(from, to) {
 
   var relativePath = _path2.default.relative(fromDir, toDir);
 
-  return '' + (relativePath ? relativePath : './') + name;
+  return (relativePath ? relativePath : './') + '/' + name;
 }
 
 function getTemplate(nvim, _ref) {
