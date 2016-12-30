@@ -6,12 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-exports.getImportPath = getImportPath;
 exports.getTemplate = getTemplate;
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
 
 var _regeneratorRuntime = require('regenerator-runtime');
 
@@ -21,11 +16,15 @@ var _fs = require('mz/fs');
 
 var _fs2 = _interopRequireDefault(_fs);
 
+var _constants = require('./constants');
+
 var _logger = require('./logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
-var _constants = require('./constants');
+var _getImportPath = require('./getImportPath');
+
+var _getImportPath2 = _interopRequireDefault(_getImportPath);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,21 +32,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 var MAP = void 0;
-
-// Retrieves relative path between two files (full path)
-function getImportPath(from, to) {
-  // Need to strip filenames and only use directories
-  var _path$parse = _path2.default.parse(from),
-      fromDir = _path$parse.dir;
-
-  var _path$parse2 = _path2.default.parse(to),
-      toDir = _path$parse2.dir,
-      name = _path$parse2.name;
-
-  var relativePath = _path2.default.relative(fromDir, toDir);
-
-  return (relativePath ? relativePath : './') + '/' + name;
-}
 
 function getTemplate(nvim, _ref) {
   var word = _ref.word,
@@ -147,7 +131,7 @@ var insertImportStatement = function () {
               break;
             }
 
-            importPath = getImportPath(filename, context.file);
+            importPath = (0, _getImportPath2.default)(filename, context.file);
             _context.next = 34;
             return nvim.getCurrentBuffer();
 

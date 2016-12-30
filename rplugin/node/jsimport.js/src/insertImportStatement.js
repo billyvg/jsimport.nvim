@@ -1,32 +1,14 @@
-import path from 'path';
-
 import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import fs from 'mz/fs';
 
-import logger from './logger';
 import {
   CACHE_FILENAME,
   MENU_STR,
 } from './constants';
+import logger from './logger';
+import getImportPath from './getImportPath';
 
 let MAP;
-
-// Retrieves relative path between two files (full path)
-export function getImportPath(from, to) {
-  // Need to strip filenames and only use directories
-  const {
-    dir: fromDir,
-  } = path.parse(from);
-
-  const {
-    dir: toDir,
-    name,
-  } = path.parse(to);
-
-  const relativePath = path.relative(fromDir, toDir);
-
-  return `${relativePath ? relativePath : './'}/${name}`;
-}
 
 export function getTemplate(nvim, { /*buffer, */word, importPath, context }) {
   if (context.type === 'named') {
