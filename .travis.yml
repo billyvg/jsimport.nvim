@@ -4,3 +4,7 @@ node_js:
   - "6"
 cache:
   yarn: true
+install:
+  - cd rplugin/node/jsimport.js && npm install
+  - npm install
+
