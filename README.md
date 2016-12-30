@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/billyvg/jsimport.nvim.svg?branch=master)](https://travis-ci.org/billyvg/jsimport.nvim)
+[![Build Status](https://travis-ci.org/billyvg/jsimport.nvim.svg?branch=master)](https://travis-ci.org/billyvg/jsimport.nvim) [![codecov](https://codecov.io/gh/billyvg/jsimport.nvim/branch/master/graph/badge.svg)](https://codecov.io/gh/billyvg/jsimport.nvim)
+
 
 # jsimport.nvim (alpha)
 
