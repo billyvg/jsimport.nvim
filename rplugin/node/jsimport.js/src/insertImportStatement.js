@@ -7,17 +7,9 @@ import {
 } from './constants';
 import logger from './logger';
 import getImportPath from './getImportPath';
+import getImportString from './getImportString';
 
 let MAP;
-
-export function getTemplate(nvim, { /*buffer, */word, importPath, context }) {
-  if (context.type === 'named') {
-    return ['import {', `\t${word},`, `} from '${importPath}';`];
-  }
-
-  // default import
-  return [`import ${word} from '${importPath}';`];
-}
 
 const insertImportStatement = async function(nvim, [filename]) {
   const {
@@ -52,7 +44,7 @@ const insertImportStatement = async function(nvim, [filename]) {
         const buffer = await nvim.getCurrentBuffer();
 
         if (buffer) {
-          let template = getTemplate(nvim, { buffer, word, importPath, context });
+          let template = getImportString(nvim, { buffer, word, importPath, context });
 
           if (template) {
             try {

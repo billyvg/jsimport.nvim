@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-exports.getTemplate = getTemplate;
-
 var _regeneratorRuntime = require('regenerator-runtime');
 
 var _regeneratorRuntime2 = _interopRequireDefault(_regeneratorRuntime);
@@ -26,6 +24,10 @@ var _getImportPath = require('./getImportPath');
 
 var _getImportPath2 = _interopRequireDefault(_getImportPath);
 
+var _getImportString = require('./getImportString');
+
+var _getImportString2 = _interopRequireDefault(_getImportString);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; } // eslint-disable-line
@@ -33,25 +35,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var MAP = void 0;
 
-function getTemplate(nvim, _ref) {
-  var word = _ref.word,
-      importPath = _ref.importPath,
-      context = _ref.context;
-
-  if (context.type === 'named') {
-    return ['import {', '\t' + word + ',', '} from \'' + importPath + '\';'];
-  }
-
-  // default import
-  return ['import ' + word + ' from \'' + importPath + '\';'];
-}
-
 var insertImportStatement = function () {
-  var _ref2 = _asyncToGenerator(_regeneratorRuntime2.default.mark(function _callee(nvim, _ref3) {
-    var _ref4 = _slicedToArray(_ref3, 1),
-        filename = _ref4[0];
+  var _ref = _asyncToGenerator(_regeneratorRuntime2.default.mark(function _callee(nvim, _ref2) {
+    var _ref3 = _slicedToArray(_ref2, 1),
+        filename = _ref3[0];
 
-    var _ref5, word, menu, parsedResults, results, context, importPath, buffer, template;
+    var _ref4, word, menu, parsedResults, results, context, importPath, buffer, template;
 
     return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
       while (1) {
@@ -71,9 +60,9 @@ var insertImportStatement = function () {
             _context.t0 = {};
 
           case 5:
-            _ref5 = _context.t0;
-            word = _ref5.word;
-            menu = _ref5.menu;
+            _ref4 = _context.t0;
+            word = _ref4.word;
+            menu = _ref4.menu;
             parsedResults = void 0;
             results = void 0;
 
@@ -140,7 +129,7 @@ var insertImportStatement = function () {
 
 
             if (buffer) {
-              template = getTemplate(nvim, { buffer: buffer, word: word, importPath: importPath, context: context });
+              template = (0, _getImportString2.default)(nvim, { buffer: buffer, word: word, importPath: importPath, context: context });
 
 
               if (template) {
@@ -161,7 +150,7 @@ var insertImportStatement = function () {
   }));
 
   return function insertImportStatement(_x, _x2) {
-    return _ref2.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 }();
 
