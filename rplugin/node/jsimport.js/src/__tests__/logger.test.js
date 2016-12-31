@@ -1,8 +1,8 @@
 jest.mock('../util', () => jest.genMockFromModule('../util'));
 jest.mock('raven');
 
-import logger from '../logger';
 import Raven from 'raven';
+import logger from '../logger';
 import {
   echomsg,
   warn,

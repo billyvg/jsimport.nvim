@@ -43,6 +43,9 @@ module.exports = {
     "semi": [
       "error",
       "always"
-    ]
+    ],
+
+    "import/order": ["error"],
+    "import/extensions": ["error", {"js": "never"}],
   }
 };

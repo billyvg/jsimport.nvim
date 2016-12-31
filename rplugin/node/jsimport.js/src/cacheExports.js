@@ -6,7 +6,7 @@ import {
 } from './constants';
 import logger from './logger';
 import gatherExports from './gatherExports';
-import parseExports from './parseExports.js';
+import parseExports from './parseExports';
 
 const cacheExports = async (nvim) => {
   try {

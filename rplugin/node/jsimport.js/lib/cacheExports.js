@@ -22,7 +22,7 @@ var _gatherExports = require('./gatherExports');
 
 var _gatherExports2 = _interopRequireDefault(_gatherExports);
 
-var _parseExports = require('./parseExports.js');
+var _parseExports = require('./parseExports');
 
 var _parseExports2 = _interopRequireDefault(_parseExports);
 

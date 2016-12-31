@@ -1,11 +1,11 @@
-import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import crypto from 'crypto';
+import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import Raven from 'raven';
 
+import { version } from '../package.json';
 import {
   RAVEN_DSN,
 } from './constants';
-import { version } from '../package.json';
 
 const initializeTracking = async (nvim) => {
   const shouldTrackErrors = await nvim.getVar('jsimport#reporting');

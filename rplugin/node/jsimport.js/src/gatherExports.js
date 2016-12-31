@@ -1,6 +1,7 @@
+import path from 'path';
+
 import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import fs from 'mz/fs';
-import path from 'path';
 
 import {
   DEFAULT_IGNORE,

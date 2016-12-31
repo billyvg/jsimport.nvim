@@ -1,8 +1,9 @@
+import path from 'path';
 import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import { parse as babylonParse } from 'babylon';
 import traverse from 'babel-traverse';
 import fs from 'mz/fs';
-import path from 'path';
+import logger from './logger';
 
 const _addMapping = (obj, { name, file, type }) => {
   obj[name] = {

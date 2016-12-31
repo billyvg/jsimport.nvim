@@ -1,5 +1,5 @@
-import gatherExports from '../gatherExports';
 import path from 'path';
+import gatherExports from '../gatherExports';
 
 describe('gatherExports', function() {
   const GATHER_DIR = path.resolve(__dirname, '../../test_resources/gather_test/');
