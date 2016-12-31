@@ -2,30 +2,22 @@ import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
 import fs from 'mz/fs';
 import path from 'path';
 
-// TODO respect configuration + gitignore
-const DEFAULT_IGNORE = [
-  'node_modules',
-  '.git',
-  '.config',
-  '.meteor',
-  'lib',
-];
+import {
+  DEFAULT_IGNORE,
+  DEFAULT_PATTERN,
+} from './constants';
 
-export const getFiles = async (directory, pattern, options = {}) => {
-  const {
-    ignoreDirs,
-  } = options;
-
+export const getFiles = async (directory, { pattern, ignore = [] }) => {
   const files = await fs.readdir(path.resolve(directory));
   let filesInDir = await Promise.all(files.map(async (f) => {
     const file = path.resolve(await directory, f);
     const stat = await fs.stat(file);
-    if (stat.isDirectory()) {
-      if (!ignoreDirs.find((ignorePattern) => f.search(ignorePattern) !== -1)) {
-        return getFiles(file, pattern, options);
+    if (!ignore.find((ignorePattern) => file.search(ignorePattern) !== -1)) {
+      if (stat.isDirectory()) {
+        return getFiles(file, { pattern, ignore });
+      } else if (file.search(pattern) > -1) {
+        return file;
       }
-    } else if (file.search(pattern) > -1) {
-      return file;
     }
   }));
 
@@ -43,10 +35,8 @@ export const getFiles = async (directory, pattern, options = {}) => {
 
 };
 
-const gatherExports = async (directory, pattern = '\.js(x|)$', options = {}) => {
-  const ignoreDirs = DEFAULT_IGNORE || options.ignoreDirs;
-
-  return getFiles(directory, pattern, { ignoreDirs });
+const gatherExports = async (directory, { pattern = DEFAULT_PATTERN, ignore = DEFAULT_IGNORE } = {}) => {
+  return getFiles(directory, { pattern, ignore });
 };
 
 export default gatherExports;
