@@ -15,7 +15,7 @@ const cacheExports = async (nvim) => {
     logger.log(`Parsing and caching ${results && results.length || 0} files (this may take some time...)`, { nvim });
 
     if (results && results.length) {
-      const parsedResults = await parseExports(results);
+      const parsedResults = await parseExports(results, nvim);
       if (parsedResults) {
         fs.writeFile(CACHE_FILENAME, JSON.stringify(parsedResults), 'utf8');
         const benchmark = (+new Date() - start) / 1000;
