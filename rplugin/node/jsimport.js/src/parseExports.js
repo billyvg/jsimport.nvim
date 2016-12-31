@@ -90,7 +90,7 @@ export default async (files: Array<string>, nvim) => {
         });
         traverse(ast, BabylonVisitor, null, { file, map });
       } catch (err) {
-        logger.error('Syntax error while parsing AST', { err, nvim });
+        logger.error(`${file}: Syntax error while parsing AST`, { err, nvim });
       }
     });
     logger.debug('Done traverse');
