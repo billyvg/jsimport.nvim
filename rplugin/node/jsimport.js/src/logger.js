@@ -16,7 +16,7 @@ const breadcrumbContext = ({ message, category, level, ...options }) => {
 };
 
 const _log = (level, message, { nvim, err, ...options } = {}) => {
-  debug(message);
+  debug(`${message}${err ? `: ${err}`: ''}`);
 
   breadcrumbContext({
     ...options,

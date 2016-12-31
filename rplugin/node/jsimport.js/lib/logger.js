@@ -37,7 +37,7 @@ var _log = function _log(level, message) {
       err = _ref2.err,
       options = _objectWithoutProperties(_ref2, ['nvim', 'err']);
 
-  debug(message);
+  debug('' + message + (err ? ': ' + err : ''));
 
   breadcrumbContext(_extends({}, options, {
     message: message,
