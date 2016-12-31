@@ -49,7 +49,11 @@ const logger = {
       level: 'debug',
     });
 
-    echomsg(nvim, message);
+    debug(message);
+
+    if (nvim) {
+      echomsg(nvim, message);
+    }
   },
 
   log: _log.bind(this, 'info'),
