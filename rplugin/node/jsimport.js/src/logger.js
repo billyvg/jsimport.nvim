@@ -6,10 +6,11 @@ import {
   error,
 } from './util';
 
-const breadcrumbContext = ({ message, category, ...options }) => {
+const breadcrumbContext = ({ message, category, level, ...options }) => {
   Raven.captureBreadcrumb({
     message,
     category: category || 'logging',
+    level,
     data: options,
   });
 };
