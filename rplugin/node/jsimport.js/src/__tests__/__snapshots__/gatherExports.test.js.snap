@@ -25,6 +25,8 @@ Array [
 ]
 `;
 
+exports[`gatherExports ignores all files 1`] = `Array []`;
+
 exports[`gatherExports only gathers from ".js" files 1`] = `
 Array [
   "/rplugin/node/jsimport.js/test_resources/gather_test/child/defaultExport.js",
