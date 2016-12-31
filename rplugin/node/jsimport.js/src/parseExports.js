@@ -77,9 +77,9 @@ const babylonPlugins = [
   'trailingFunctionCommas',
 ];
 
-export default async (files) => {
-  const promises = files.map((file) => fs.readFile(file, 'utf8').then((source) => [file, source]));
-  debug('Parsing... ', promises.length);
+export default async (files: Array<string>, nvim) => {
+  const promises: Array<Promise<[string, string]>> = files.map((file) => fs.readFile(file, 'utf8').then((source) => [file, source]));
+  logger.debug(`Parsing...${promises.length}`);
   return Promise.all(promises).then(([...sources]) => {
     const map = {};
     sources.forEach(([file, source]) => {
@@ -90,14 +90,11 @@ export default async (files) => {
         });
         traverse(ast, BabylonVisitor, null, { file, map });
       } catch (err) {
-        debug('Caught syntax error', err);
+        logger.error('Syntax error while parsing AST', { err, nvim });
       }
     });
-    debug('done traverse');
+    logger.debug('Done traverse');
     return map;
-  }, (err) => debug('error', err))
-  .then((map) => {
-    return map;
-  })
-  .catch((err) => debug(err));
+  }, (err) => logger.error('Caught promise error reading files', { nvim, err }))
+  .catch((err) => debug('Error in parseExports', { nvim, err }));
 };
