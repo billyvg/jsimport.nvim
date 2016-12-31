@@ -1,11 +1,13 @@
 import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
-import insertImportStatement from './insertImportStatement';
 import initializeTracking from './tracking';
-import cacheExports from './cacheExports';
+
+import insertImportStatement from './handlers/insertImportStatement';
+import cacheExports from './handlers/cache';
 
 plugin.functionSync('_jsimport_load', (nvim, args, done) => {
   nvim.setVar('jsimport#_channel_id', nvim._channel_id, done);
   initializeTracking(nvim);
+  cacheExports(nvim);
 });
 
 // nvim.getVar('deoplete#_context', (err, res) => {

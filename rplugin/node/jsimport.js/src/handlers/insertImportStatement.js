@@ -1,42 +1,30 @@
 import regeneratorRuntime from 'regenerator-runtime'; // eslint-disable-line
-import fs from 'mz/fs';
 
 import {
-  CACHE_FILENAME,
   MENU_STR,
-} from './constants';
-import logger from './logger';
-import getImportPath from './getImportPath';
-import getImportString from './getImportString';
-
-let MAP;
+} from '../constants';
+import logger from '../logger';
+import getImportPath from '../getImportPath';
+import getImportString from '../getImportString';
+import db from '../ExportsList';
 
 const insertImportStatement = async function(nvim, [filename]) {
   const {
     word,
     menu,
   } = await nvim.getVvar('completed_item') || {};
-  let parsedResults;
-  let results;
+  let context;
 
   if (word && menu.indexOf(MENU_STR) > -1) {
     logger.debug(`insertImport: ${filename} ${word}`);
 
     try {
-      if (MAP) {
-        parsedResults = MAP;
-        logger.debug('Using cached results');
-      } else {
-        results = await fs.readFile(CACHE_FILENAME, 'utf8');
-        MAP = parsedResults = JSON.parse(results);
-        logger.debug('Loading cached results from fs');
-      }
+      context = await db.getWord(word);
     } catch(err) {
-      logger.error('Error parsing cache', { nvim, err });
+      logger.error(`Error retrieving "${word}" from database`, { nvim, err });
     }
 
-    if (parsedResults && parsedResults[word]) {
-      let context = parsedResults[word];
+    if (context) {
       // We have the file and import, check current file's imports and import if not found
       // Also make sure target import file isn't current buffer
       if (context && context.file && filename !== context.file) {
@@ -55,6 +43,8 @@ const insertImportStatement = async function(nvim, [filename]) {
           }
         }
       }
+    } else {
+      logger.debug(`Word not found in db: ${word}`, { nvim });
     }
   }
 };
