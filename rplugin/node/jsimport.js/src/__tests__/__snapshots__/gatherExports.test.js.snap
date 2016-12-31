@@ -1,5 +1,34 @@
-exports[`gatherExports can gather exports with default settings 1`] = `
+exports[`gatherExports gathers ".js" and ".jsx" files by default 1`] = `
 Array [
+  "/rplugin/node/jsimport.js/test_resources/gather_test/child/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/child/reactComponent.jsx",
   "/rplugin/node/jsimport.js/test_resources/gather_test/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/namedExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/reactComponent.jsx",
+]
+`;
+
+exports[`gatherExports ignores ".jsx" files 1`] = `
+Array [
+  "/rplugin/node/jsimport.js/test_resources/gather_test/child/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/namedExport.js",
+]
+`;
+
+exports[`gatherExports ignores "child/react" full file path pattern 1`] = `
+Array [
+  "/rplugin/node/jsimport.js/test_resources/gather_test/child/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/namedExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/reactComponent.jsx",
+]
+`;
+
+exports[`gatherExports only gathers from ".js" files 1`] = `
+Array [
+  "/rplugin/node/jsimport.js/test_resources/gather_test/child/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/defaultExport.js",
+  "/rplugin/node/jsimport.js/test_resources/gather_test/namedExport.js",
 ]
 `;
