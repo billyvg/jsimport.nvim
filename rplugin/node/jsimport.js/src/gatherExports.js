@@ -22,17 +22,10 @@ export const getFiles = async (directory, { pattern, ignore = [] }) => {
   }));
 
   // Filter out empty arrays, and no matched files
-  filesInDir = filesInDir.filter((f) => f && (typeof f === 'string' || f.length));
-
-  // Flatten
-  return filesInDir.reduce((memo, val) => {
-    if (val && val.length) {
-      return memo.concat(val);
-    }
-
-    return memo;
-  }, []);
-
+  // and then flatten
+  return filesInDir
+    .filter((f) => f && (typeof f === 'string' || f.length))
+    .reduce((memo, val) => memo.concat(val), []);
 };
 
 const gatherExports = async (directory, { pattern = DEFAULT_PATTERN, ignore = DEFAULT_IGNORE } = {}) => {
